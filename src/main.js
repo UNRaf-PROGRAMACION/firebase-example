@@ -1,7 +1,9 @@
 import Phaser from "phaser";
 
-import HelloWorldScene from "./scenes/HelloWorldScene";
-import UI from "./scenes/UI";
+import Preload from "./scenes/Preload";
+
+import FirebasePlugin from "./plugins/FirebasePlugin";
+import Game from "./scenes/Game";
 
 const config = {
   type: Phaser.AUTO,
@@ -26,7 +28,17 @@ const config = {
       debug: false,
     },
   },
-  scene: [HelloWorldScene, UI],
+  scene: [Preload, Game],
+  plugins: {
+    global: [
+      {
+        key: "FirebasePlugin",
+        plugin: FirebasePlugin,
+        start: true,
+        mapping: "firebase",
+      },
+    ],
+  },
 };
 
 export default new Phaser.Game(config);
