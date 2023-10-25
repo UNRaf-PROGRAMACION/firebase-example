@@ -4,6 +4,8 @@ import Preload from "./scenes/Preload";
 
 import FirebasePlugin from "./plugins/FirebasePlugin";
 import Game from "./scenes/Game";
+import Login from "./scenes/Login";
+import Scores from "./scenes/Scores";
 
 const config = {
   type: Phaser.AUTO,
@@ -28,7 +30,7 @@ const config = {
       debug: false,
     },
   },
-  scene: [Preload, Game],
+  scene: [Preload, Login, Game, Scores],
   plugins: {
     global: [
       {
